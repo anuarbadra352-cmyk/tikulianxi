@@ -571,11 +571,12 @@ function bindQuestionInteractions(q) {
         let a = S.answers[S.idx] || [];
         a[+el.dataset.blank] = el.value;
         S.answers[S.idx] = a;
+        renderActions(q);
       });
     });
   } else {
     const ta = app.querySelector("#taAns");
-    if (ta) ta.addEventListener("input", () => { S.answers[S.idx] = ta.value; });
+    if (ta) ta.addEventListener("input", () => { S.answers[S.idx] = ta.value; renderActions(q); });
   }
   app.querySelectorAll("[data-se]").forEach(el => {
     el.addEventListener("click", () => {
