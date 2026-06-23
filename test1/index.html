@@ -476,7 +476,7 @@ function renderQuestion(q) {
   } else if (q.typeKey === "fill") {
     const answers = Array.isArray(q.answer) ? q.answer : [q.answer];
     const ua = S.answers[S.idx] || [];
-    const parts = q.question.split(/（\s*）/);
+    const parts = q.question.split(/（\s*）|_{2,}/);
     const blankCount = parts.length - 1;
     body = '<div class="q-meta"><span class="type-badge '+q.typeKey+'">'+q.typeLabel+'</span>';
     if (q.chapter) body += '<span class="src-badge">'+esc(q.chapter)+'</span>';
